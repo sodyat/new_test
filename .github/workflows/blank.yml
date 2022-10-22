@@ -55,3 +55,7 @@ jobs:
           run: | 
             echo "Application name : ${{env.APPLICATION_NAME}}"
             echo "Version of application: ${{env.DEPLOY_PACKAGE_NAME}}"    
+        
+        - name: List list of files 
+          run: ls -la 
+          
