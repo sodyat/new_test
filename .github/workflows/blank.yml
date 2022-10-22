@@ -1,6 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI 
+env: 
+    APPLICATION_NAME: "Mywork"
+    DEPLOY_PACKAGE_NAME: "my_work_version-${{ github.sha }}"
+
 
 # Controls when the workflow will run
 on:
@@ -41,8 +45,13 @@ jobs:
   my_testing:
       runs-on: ubuntu-latest
       
+      
           
       steps: 
         - name: Print hello world
           run : echo "Hello world from testing"
-         
+
+        - name: Deployment version and name
+          run: | 
+            echo "Application name : ${{env.APPLICATION_NAME}}"
+            echo "Version of application: ${{env.DEPLOY_PACKAGE_NAME}}"    
