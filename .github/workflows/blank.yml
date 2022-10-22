@@ -40,6 +40,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
+      - name: aws 
+        run: aws --version
+
+      - name: zip
+        run: zip   
           
           
   my_testing:
@@ -56,6 +61,12 @@ jobs:
             echo "Application name : ${{env.APPLICATION_NAME}}"
             echo "Version of application: ${{env.DEPLOY_PACKAGE_NAME}}"    
         
-        - name: List list of files 
+        - name: List  of files 
           run: ls -la 
           
+
+        - name: Clone repo
+          uses: actions/checkout@v1
+
+        - name: list of files v2
+          run: ls -la
